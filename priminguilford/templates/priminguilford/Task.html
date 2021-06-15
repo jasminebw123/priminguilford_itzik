@@ -1,0 +1,41 @@
+<script type="text/javascript">
+
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+</script>
+
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load otree %}
+
+{% block title %}
+   Name of task
+{% endblock %}
+
+{% block content %}
+<p>
+   Please enter as many uses as you can find for the following object:
+</p>
+
+<div>
+
+<img src="{% static image_path %}" id="imgHideShow" width="200" height="200" 
+width="200" height="200" >
+</div>
+
+<p>
+   Press Next when done
+</p>
+
+
+
+{% formfields %}
+    {% next_button %}
+    
+{% endblock %}
+

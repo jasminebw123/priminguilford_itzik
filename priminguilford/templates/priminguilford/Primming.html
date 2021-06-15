@@ -1,0 +1,52 @@
+<script type="text/javascript">
+
+function stopRKey(evt) {
+  var evt = (evt) ? evt : ((event) ? event : null);
+  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+
+document.onkeypress = stopRKey;
+
+</script>
+
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .browse-tip{
+    display:none;
+    }
+    .otree-timer {
+    display: none;
+    }
+</style>
+ 
+<div>
+<img src="{% static image_path %}" 
+class="browse-tip" id="imgHideShow" width="200" height="200" >
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(){
+    setTimeout(function(){
+      showImage();
+      setInterval(hideImage, 50);
+    },500);
+  });
+  function hideImage(){
+    document.getElementById( "imgHideShow" ).style.display = "none" ;
+  }
+  function showImage(){
+    document.getElementById( "imgHideShow" ).style.display = "block" ;
+  }
+</script>
+
+{% endblock %}
+

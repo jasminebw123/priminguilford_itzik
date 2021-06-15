@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Demographics
+{% endblock %}
+
+{% block content %}
+<p>Please fill in your following details:</p>
+{% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
